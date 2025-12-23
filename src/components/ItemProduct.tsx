@@ -2,7 +2,7 @@ import type { Cart, Item } from "../App";
 import numberFormatter from "../utils/numberFormatter";
 
 type ItemProductProps = {
-  toggleBtnForQuantity: (item: Item) => boolean;
+  hasQuantity: (item: Item["name"]) => number | undefined;
   removePerQuantityFromCart: (itemName: string) => void;
   addToCart: (item: Item) => void;
   cart: Cart[];
@@ -14,14 +14,12 @@ export default function ItemProduct({
   addToCart,
   cart,
   removePerQuantityFromCart,
-  toggleBtnForQuantity,
+  hasQuantity,
 }: ItemProductProps) {
-  const isActive = toggleBtnForQuantity(item);
-  const itemCartQuantity = cart.map((itemCart) =>
-    itemCart.name === item.name ? itemCart.quantity : undefined
-  );
+  const isActive = hasQuantity(item.name);
+
   return (
-    <li key={item.name} className="item">
+    <li className="item">
       <div className="item-image-add-to-cart">
         <img
           className={`${isActive && "active-img"}`}
@@ -46,7 +44,7 @@ export default function ItemProduct({
                 <path fill="#fff" d="M0 .375h10v1.25H0V.375Z" />
               </svg>
             </button>
-            {itemCartQuantity}
+            {isActive}
             <button className="btn" type="button" onClick={() => addToCart(item)}>
               <svg
                 className="icon add-to-cart-icon"

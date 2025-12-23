@@ -59,8 +59,10 @@ export default function App() {
     setCart((preCart) => preCart.filter((itemCart) => itemCart.name !== itemName));
   }
 
-  function toggleBtnForQuantity(item: Item): boolean {
-    return cart.some((itemCart) => itemCart.name === item.name);
+  function hasQuantity(itemName: Item["name"]) {
+    const quantity = cart.find((itemCart) => itemCart.name === itemName)?.quantity;
+
+    return quantity;
   }
 
   useEffect(() => {
@@ -83,7 +85,7 @@ export default function App() {
                   cart={cart}
                   item={item}
                   removePerQuantityFromCart={removePerQuantityFromCart}
-                  toggleBtnForQuantity={toggleBtnForQuantity}
+                  hasQuantity={hasQuantity}
                 />
               );
             })}
