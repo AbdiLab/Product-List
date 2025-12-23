@@ -22,13 +22,13 @@ export default function App() {
   }, [cart]);
 
   function addToCart(item: Item) {
-    const exsistingItem = cart.find((itemCart) => itemCart.name === item.name);
+    const existingItem = cart.find((itemCart) => itemCart.name === item.name);
 
-    if (exsistingItem) {
+    if (existingItem) {
       setCart((preCart) => {
         return preCart.map((itemCart) =>
-          itemCart.name === exsistingItem.name
-            ? { ...exsistingItem, quantity: exsistingItem.quantity + 1 }
+          itemCart.name === existingItem.name
+            ? { ...existingItem, quantity: existingItem.quantity + 1 }
             : itemCart
         );
       });
@@ -38,17 +38,17 @@ export default function App() {
   }
 
   function removePerQuantityFromCart(itemName: Item["name"]) {
-    const exsistingItem = cart.find((itemCart) => itemCart.name === itemName);
+    const existingItem = cart.find((itemCart) => itemCart.name === itemName);
 
-    if (exsistingItem) {
-      exsistingItem.quantity === 1
+    if (existingItem) {
+      existingItem.quantity === 1
         ? setCart((preCart) => {
             return preCart.filter((itemCart) => itemCart.name !== itemName);
           })
         : setCart((preCart) => {
             return preCart.map((itemCart) =>
-              itemCart.name === exsistingItem.name
-                ? { ...itemCart, quantity: exsistingItem.quantity - 1 }
+              itemCart.name === existingItem.name
+                ? { ...itemCart, quantity: existingItem.quantity - 1 }
                 : itemCart
             );
           });
@@ -59,8 +59,8 @@ export default function App() {
     setCart((preCart) => preCart.filter((itemCart) => itemCart.name !== itemName));
   }
 
-  function toggleBtnForQuantity(item: Item) {
-    return cart.find((itemCart) => itemCart.name === item.name);
+  function toggleBtnForQuantity(item: Item): boolean {
+    return cart.some((itemCart) => itemCart.name === item.name);
   }
 
   useEffect(() => {

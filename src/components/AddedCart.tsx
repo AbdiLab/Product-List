@@ -21,7 +21,7 @@ export default function AddedCart({
         {cart.map((itemCart) => {
           return (
             <Fragment key={itemCart.name}>
-              <div key={itemCart.name} className="added-item">
+              <div className="added-item">
                 <div className="added-item-info">
                   <div className="text-Preset-4-Bold">{itemCart.name}</div>
                   <div className="text-Preset-4-Bold">
