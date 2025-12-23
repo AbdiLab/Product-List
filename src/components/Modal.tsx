@@ -40,7 +40,10 @@ export default function Modal({ cart, orderTotal, onClose }: ModalProps) {
               <Fragment key={orderItem.name}>
                 <div className="confirmed-item">
                   <div className="confirmed-item-info">
-                    <img src={orderItem.image.thumbnail} />
+                    <img
+                      src={orderItem.image.thumbnail}
+                      alt={`order ${orderItem.name} thumbnail`}
+                    />
                     <div>
                       <div className="text-Preset-4-Bold">{orderItem.category}</div>
                       <div>
