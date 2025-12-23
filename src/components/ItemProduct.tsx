@@ -5,14 +5,14 @@ type ItemProductProps = {
   hasQuantity: (item: Item["name"]) => number | undefined;
   removePerQuantityFromCart: (itemName: string) => void;
   addToCart: (item: Item) => void;
-  cart: Cart[];
+
   item: Item;
 };
 
 export default function ItemProduct({
   item,
   addToCart,
-  cart,
+
   removePerQuantityFromCart,
   hasQuantity,
 }: ItemProductProps) {

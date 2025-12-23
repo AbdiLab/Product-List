@@ -82,7 +82,6 @@ export default function App() {
                 <ItemProduct
                   key={item.name}
                   addToCart={addToCart}
-                  cart={cart}
                   item={item}
                   removePerQuantityFromCart={removePerQuantityFromCart}
                   hasQuantity={hasQuantity}
