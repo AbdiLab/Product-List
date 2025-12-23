@@ -23,7 +23,13 @@ export default function App() {
   }, [cart]);
 
   function addToCart(item: Item) {
-    setCart((preCart) => [...preCart, { ...item, quantity: 1 }]);
+    setCart((preCart) => {
+      const inCart = preCart.some((itemCart) => itemCart.name === item.name);
+      if (!inCart) {
+        return [...preCart, { ...item, quantity: 1 }];
+      }
+      return preCart;
+    });
   }
 
   function increaseQuantity(itemName: Item["name"]) {
