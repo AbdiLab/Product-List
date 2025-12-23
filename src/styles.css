@@ -81,8 +81,8 @@
 }
 
 svg {
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 .icon {
@@ -180,7 +180,7 @@ body {
 }
 
 .container {
-  width: 1216px;
+  max-width: 1216px;
   margin: 0 auto;
 }
 
@@ -200,7 +200,10 @@ main {
   margin-block-end: var(--sp-400);
 }
 
-.item {
+ul {
+  list-style: none;
+}
+.item > article {
   display: flex;
   flex-direction: column;
   gap: var(--sp-200);
