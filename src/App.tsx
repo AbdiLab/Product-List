@@ -35,29 +35,18 @@ export default function App() {
   }
 
   function decreaseQuantity(itemName: Item["name"]) {
-    const existingItem = cart.find((itemCart) => itemCart.name === itemName);
-    if (existingItem) {
-      existingItem.quantity === 1
-        ? setCart((preCart) => preCart.filter((itemCart) => itemCart.name !== itemName))
-        : setCart((preCart) =>
-            preCart.map((itemCart) =>
-              itemCart.name === itemName
-                ? { ...itemCart, quantity: itemCart.quantity - 1 }
-                : itemCart
-            )
-          );
-    }
+    setCart((preCart) =>
+      preCart
+        .map((itemCart) =>
+          itemCart.name === itemName ? { ...itemCart, quantity: itemCart.quantity - 1 } : itemCart
+        )
+        .filter((itemCart) => itemCart.quantity > 0)
+    );
   }
 
   function removeCart(itemName: Item["name"]) {
     setCart((preCart) => preCart.filter((itemCart) => itemCart.name !== itemName));
   }
-
-  useEffect(() => {
-    if (!isModalOpen) {
-      setCart([]);
-    }
-  }, [isModalOpen]);
 
   useEffect(() => {
     if (!isModalOpen) {
