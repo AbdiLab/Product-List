@@ -8,7 +8,7 @@ type ItemProductProps = {
 
 export default function ItemProduct({ item, addToCart }: ItemProductProps) {
   return (
-    <li className="item">
+    <article className="item">
       <div className="item-image-add-to-cart">
         <img
           src={item.image.desktop}
@@ -46,6 +46,6 @@ export default function ItemProduct({ item, addToCart }: ItemProductProps) {
         <div className="category">{item.name}</div>
         <div className="price ">{numberFormatter(item.price)}</div>
       </div>
-    </li>
+    </article>
   );
 }
