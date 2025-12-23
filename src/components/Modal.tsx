@@ -1,6 +1,6 @@
 import { createPortal } from "react-dom";
 import type { Cart } from "../App";
-import { createRef, Fragment } from "react";
+import { Fragment } from "react";
 import numberFormatter from "../utils/numberFormatter";
 
 type ModalProps = {
