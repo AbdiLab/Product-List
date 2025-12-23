@@ -26,7 +26,7 @@ export default function AddedCart({
                   <div className="text-Preset-4-Bold">{itemCart.name}</div>
                   <div className="text-Preset-4-Bold">
                     <span className="quantity">{itemCart.quantity}x</span>
-                    <span className="text-Preset-4">@ $5.5</span>
+                    <span className="text-Preset-4">@ {itemCart.price}</span>
                     <span>{numberFormatter(itemCart.price * itemCart.quantity)}</span>
                   </div>
                 </div>
