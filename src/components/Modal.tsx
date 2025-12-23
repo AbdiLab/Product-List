@@ -42,7 +42,7 @@ export default function Modal({ cart, orderTotal, onClose }: ModalProps) {
                   <div className="confirmed-item-info">
                     <img src={orderItem.image.thumbnail} />
                     <div>
-                      <div className="text-Preset-4-Bold">Classic Tramisu</div>
+                      <div className="text-Preset-4-Bold">{orderItem.category}</div>
                       <div>
                         <span className="confirmed-item-quantity text-Preset-4-Bold">
                           {orderItem.quantity}x

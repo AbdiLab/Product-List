@@ -30,7 +30,10 @@ export default function AddedCart({
                     <span>{numberFormatter(itemCart.price * itemCart.quantity)}</span>
                   </div>
                 </div>
-                <button className="btn btn-remove" onClick={() => removeCart(itemCart.name)}>
+                <button
+                  className="btn btn-remove"
+                  type="button"
+                  onClick={() => removeCart(itemCart.name)}>
                   <svg
                     className="icon icon-remove"
                     xmlns="http://www.w3.org/2000/svg"
@@ -77,7 +80,7 @@ export default function AddedCart({
           <span>delivery</span>
         </div>
       </div>
-      <button className="btn btn-primary text-Preset-3" onClick={setIsModalOpen}>
+      <button type="button" className="btn btn-primary text-Preset-3" onClick={setIsModalOpen}>
         Confirm Order
       </button>
     </div>

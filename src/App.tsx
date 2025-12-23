@@ -28,7 +28,7 @@ export default function App() {
       setCart((preCart) => {
         return preCart.map((itemCart) =>
           itemCart.name === exsistingItem.name
-            ? { ...item, quantity: exsistingItem.quantity + 1 }
+            ? { ...exsistingItem, quantity: exsistingItem.quantity + 1 }
             : itemCart
         );
       });
@@ -48,7 +48,7 @@ export default function App() {
         : setCart((preCart) => {
             return preCart.map((itemCart) =>
               itemCart.name === exsistingItem.name
-                ? { ...exsistingItem, quantity: exsistingItem.quantity - 1 }
+                ? { ...itemCart, quantity: exsistingItem.quantity - 1 }
                 : itemCart
             );
           });
@@ -74,7 +74,7 @@ export default function App() {
       <main>
         <section className="product-list">
           <h1 className="text-Preset-1">Desserts</h1>
-          <div className="list">
+          <ul className="list">
             {Data.map((item) => {
               return (
                 <ItemProduct
@@ -87,7 +87,7 @@ export default function App() {
                 />
               );
             })}
-          </div>
+          </ul>
         </section>
         <section className="cart">
           <h2 className="text-Preset-2">Your Cart ({cart.length})</h2>

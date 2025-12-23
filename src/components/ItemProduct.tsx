@@ -16,19 +16,23 @@ export default function ItemProduct({
   removePerQuantityFromCart,
   toggleBtnForQuantity,
 }: ItemProductProps) {
+  const isActive = toggleBtnForQuantity(item);
   return (
-    <div key={item.name} className="item">
+    <li key={item.name} className="item">
       <div className="item-image-add-to-cart">
         <img
-          className={`${toggleBtnForQuantity(item) && "active-img"}`}
+          className={`${isActive && "active-img"}`}
           src={item.image.desktop}
           alt={`${item.category}`}
           srcSet={`${item.image.mobile} 375w, ${item.image.tablet} 768w, ${item.image.desktop} 1216w`}
           sizes="(max-width:768px) 768px, (max-width:375px) 375px,1216px"
         />
-        {toggleBtnForQuantity(item) ? (
+        {isActive ? (
           <div className="btn btn-add-to-cart-active">
-            <button className="btn" onClick={() => removePerQuantityFromCart(item.name)}>
+            <button
+              className="btn"
+              type="button"
+              onClick={() => removePerQuantityFromCart(item.name)}>
               <svg
                 className="icon add-to-cart-icon"
                 xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +44,7 @@ export default function ItemProduct({
               </svg>
             </button>
             {cart.map((itemCart) => itemCart.name === item.name && itemCart.quantity)}
-            <button className="btn" onClick={() => addToCart(item)}>
+            <button className="btn" type="button" onClick={() => addToCart(item)}>
               <svg
                 className="icon add-to-cart-icon"
                 xmlns="http://www.w3.org/2000/svg"
@@ -58,6 +62,7 @@ export default function ItemProduct({
         ) : (
           <button
             className="btn btn-add-to-cart text-Preset-4-Bold"
+            type="button"
             aria-label={`add ${item.name} to cart`}
             onClick={() => addToCart(item)}>
             <svg
@@ -85,6 +90,6 @@ export default function ItemProduct({
         <div className="category">{item.name}</div>
         <div className="price ">{numberFormatter(item.price)}</div>
       </div>
-    </div>
+    </li>
   );
 }

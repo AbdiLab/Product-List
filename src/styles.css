@@ -34,12 +34,12 @@
 }
 .text-Preset-2 {
   font-family: "Red Hat Text bold";
-  font-size: --sp-300;
+  font-size: var(--sp-300);
   line-height: 1.25;
 }
 .text-Preset-3 {
   font-family: "Red Hat Text Semi Bold";
-  font-size: --sp-200;
+  font-size: var(--sp-200);
   line-height: 1.5;
 }
 .text-Preset-4 {
@@ -322,10 +322,8 @@ hr {
   background-color: hsl(0, 0%, 0%, 50%);
   position: fixed;
   inset: 0;
-
   display: flex;
   flex-direction: column;
-
   justify-content: center;
   align-items: center;
 }
